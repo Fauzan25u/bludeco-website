@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BLUDECO</title>
+  <title>BLUDECO company</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -181,15 +181,38 @@
   </div>
 
 </section>
+<script>
+function sendToWhatsApp() {
 
+  let name = document.getElementById("name").value;
+  let location = document.getElementById("location").value;
+  let phone = document.getElementById("phone").value;
+  let service = document.getElementById("service").value;
+  let details = document.getElementById("details").value;
+
+  let message =
+`Hello BLUDECO,
+
+Name: ${name}
+Location: ${location}
+Phone: ${phone}
+Service: ${service || "Not listed"}
+Details: ${details}`;
+
+  let url = "https://wa.me/233556237841?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+</script>
 <!-- SHOP -->
 <section id="shop" class="py-16 px-6 text-center">
 
   <h2 class="text-3xl font-bold">Shop</h2>
-  <a href="https://wa.me/233556237841?text=Hello%20BLUDECO%2C%20I%20need%20Home Appliances %20& Interiors">
-    <button class="mt-4 bg-blue-600 px-4 py-2 w-full rounded">
-      Shop Now
-    </button>
+  <a href="https://wa.me/233556237841?text=Hello%20BLUDECO%2C%20I%20want%20to%20order%20Home Appliancesand%20& Interior.">
+  <button class="bg-blue-600 px-4 py-2 w-full rounded">
+    Order Now
+  </button>
+</a>
   </a>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
@@ -259,6 +282,45 @@
       WhatsApp Us
     </button>
   </a>
+  <section id="contact" class="py-16 text-center">
+
+  <h2 class="text-3xl font-bold">Request a Service</h2>
+  <p class="text-gray-300 mt-2">Fill in your details and we’ll respond quickly</p>
+
+  <form onsubmit="sendToWhatsApp(); return false;" class="max-w-md mx-auto mt-6 space-y-4">
+
+    <input id="name" type="text" placeholder="Your Name" class="w-full p-3 rounded text-black" required>
+
+    <input id="location" type="text" placeholder="Your Location" class="w-full p-3 rounded text-black" required>
+
+    <input id="phone" type="text" placeholder="Phone Number" class="w-full p-3 rounded text-black" required>
+
+    <!-- SERVICE DROPDOWN -->
+    <select id="service" class="w-full p-3 rounded text-black" required>
+      <option value="">Select Service</option>
+      <option>AC Installation</option>
+      <option>Curtains & Blinds</option>
+      <option>Electrical Works</option>
+      <option>Painting</option>
+      <option>TV Installation</option>
+      <option>Furniture Setup</option>
+    </select>
+
+    <!-- EXTRA DETAILS -->
+    <textarea id="details" placeholder="Describe what you need..." class="w-full p-3 rounded text-black"></textarea>
+
+    <!-- FALLBACK MESSAGE -->
+    <p class="text-sm text-gray-400">
+      Don’t see your service listed? No problem — describe it above and we’ll assist you.
+    </p>
+
+    <button type="submit" class="bg-blue-600 px-6 py-3 rounded w-full">
+      Send Request
+    </button>
+
+  </form>
+
+</section>
 </section>
 
 
@@ -287,5 +349,6 @@
   </a>
 
 </div>
+
 </body>
 </html>
